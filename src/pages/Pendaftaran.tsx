@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -7,7 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { School, ArrowLeft, Upload, CheckCircle } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
 
 const Pendaftaran = () => {
@@ -355,6 +354,17 @@ const Pendaftaran = () => {
             </CardContent>
           </Card>
         </div>
+      </div>
+
+      <div className="text-center mt-6">
+        <span className="text-gray-700">Sudah mendaftar?</span>
+        <button
+          className="underline text-blue-600 hover:text-blue-700 ml-2"
+          type="button"
+          onClick={() => navigate("/login")}
+        >
+          Login untuk memantau status
+        </button>
       </div>
     </div>
   );
