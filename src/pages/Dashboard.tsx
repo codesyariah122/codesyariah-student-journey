@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -140,6 +139,49 @@ const Dashboard = () => {
 
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-4xl mx-auto">
+          {/* Show Profile if registration data exists */}
+          {registrationData && (
+            <div className="mb-8">
+              <div className="bg-white shadow rounded-lg p-6 flex flex-col md:flex-row gap-6 items-center">
+                <div className="flex-shrink-0 w-24 h-24 bg-blue-100 text-blue-600 flex items-center justify-center rounded-full text-4xl font-bold">
+                  {registrationData.namaLengkap
+                    ? registrationData.namaLengkap
+                        .split(' ')
+                        .map((s: string) => s[0])
+                        .join('')
+                        .slice(0,2).toUpperCase()
+                    : '--'}
+                </div>
+                <div className="flex-1">
+                  <h2 className="text-xl font-semibold text-blue-700 mb-2">Profil Siswa</h2>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-1 text-sm">
+                    <div>
+                      <p><span className="font-medium text-gray-700">Nama Lengkap:</span> {registrationData.namaLengkap}</p>
+                      <p><span className="font-medium text-gray-700">NISN:</span> {registrationData.nisn}</p>
+                      <p><span className="font-medium text-gray-700">Tempat, Tanggal Lahir:</span> {registrationData.tempatLahir}, {registrationData.tanggalLahir}</p>
+                      <p><span className="font-medium text-gray-700">Jenis Kelamin:</span> {registrationData.jenisKelamin}</p>
+                      <p><span className="font-medium text-gray-700">Agama:</span> {registrationData.agama}</p>
+                      <p><span className="font-medium text-gray-700">Alamat:</span> {registrationData.alamat}</p>
+                      <p><span className="font-medium text-gray-700">No. Telepon:</span> {registrationData.noTelepon}</p>
+                      <p><span className="font-medium text-gray-700">Email:</span> {registrationData.email}</p>
+                    </div>
+                    <div>
+                      <p><span className="font-medium text-gray-700">Nama Ayah:</span> {registrationData.namaAyah}</p>
+                      <p><span className="font-medium text-gray-700">Pekerjaan Ayah:</span> {registrationData.pekerjaanAyah}</p>
+                      <p><span className="font-medium text-gray-700">Nama Ibu:</span> {registrationData.namaIbu}</p>
+                      <p><span className="font-medium text-gray-700">Pekerjaan Ibu:</span> {registrationData.pekerjaanIbu}</p>
+                      <p><span className="font-medium text-gray-700">Asal Sekolah:</span> {registrationData.asalSekolah}</p>
+                      <p><span className="font-medium text-gray-700">Nilai Rata-rata UN/Rapor:</span> {registrationData.nilaiUN}</p>
+                      <p><span className="font-medium text-gray-700">Jurusan Dipilih:</span> {registrationData.jurusan}</p>
+                      <p><span className="font-medium text-gray-700">Nomor Pendaftaran:</span> {registrationData.nomorPendaftaran}</p>
+                    </div>
+                  </div>
+                  <div className="mt-2 text-xs text-gray-500">Tanggal Daftar: {registrationData.tanggalDaftar ? new Date(registrationData.tanggalDaftar).toLocaleDateString('id-ID') : '-'}</div>
+                </div>
+              </div>
+            </div>
+          )}
+
           {/* Search Section */}
           {!registrationData && (
             <Card className="mb-8">
