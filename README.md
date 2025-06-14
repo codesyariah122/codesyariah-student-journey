@@ -1,73 +1,119 @@
-# Welcome to your Lovable project
+# 🎓 Codesyariah Student Journey
 
-## Project info
+Proyek ini merupakan prototipe website **PPDB (Penerimaan Peserta Didik Baru)** yang dikembangkan menggunakan **Next.js** dan **Vite**, serta didukung oleh berbagai library modern untuk mempercepat pengembangan frontend berbasis komponen dan pengalaman pengguna yang interaktif.
 
-**URL**: https://lovable.dev/projects/cd3e4f18-e19f-4a6a-b709-d32805f29f97
+## ✨ Fitur Utama
 
-## How can I edit this code?
+- ⚡️ **Vite + React + TypeScript** untuk performa pengembangan cepat
+- 🎨 **Tailwind CSS** untuk styling yang efisien dan responsif
+- 🧩 Komponen UI dari **Radix UI** dan **shadcn/ui**
+- 💡 Validasi form dengan **Zod** & **React Hook Form**
+- 🔌 Routing modern dengan **React Router**
+- 📊 Visualisasi data menggunakan **Recharts**
+- 🌙 Dukungan tema gelap/terang via `next-themes`
+- 📦 Manajemen data async dengan **TanStack Query**
+- 🔧 Kompatibel dengan plugin `lovable-tagger` untuk tagging komponen saat pengembangan
+- 📱 Carousel responsif dengan **Embla Carousel**
 
-There are several ways of editing your application.
+---
 
-**Use Lovable**
+## 🚀 Instalasi
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/cd3e4f18-e19f-4a6a-b709-d32805f29f97) and start prompting.
+### 1. Clone repository
 
-Changes made via Lovable will be committed automatically to this repo.
+```bash
+git clone https://github.com/codesyariah122/codesyariah-student-journey.git
+cd codesyariah-student-journey
+2. Install dependencies
 
-**Use your preferred IDE**
+npm install
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+3. Jalankan proyek
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
 npm run dev
+
+Aplikasi akan berjalan di: http://localhost:8080
+⚙️ Konfigurasi Vite
+```
+// vite.config.js
+export default defineConfig(({ mode }) => ({
+  server: {
+    host: "::",
+    port: 8080,
+  },
+  plugins: [
+    react(),
+    mode === 'development' && componentTagger(),
+  ].filter(Boolean),
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
+  },
+}));
 ```
 
-**Edit a file directly in GitHub**
+📁 Struktur Folder (Umum)
+```
+src/
+├── components/     # Komponen UI reusable
+├── pages/          # Halaman utama aplikasi
+├── hooks/          # Custom hooks
+├── lib/            # Fungsi bantu dan utils
+├── styles/         # File CSS/Tailwind tambahan
+└── ...
+```
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+📦 Dependency Highlights
 
-**Use GitHub Codespaces**
+    react, react-dom
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+    react-router-dom
 
-## What technologies are used for this project?
+    tailwindcss, tailwind-merge, tailwindcss-animate
 
-This project is built with:
+    @radix-ui/*
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+    react-hook-form, zod
 
-## How can I deploy this project?
+    @tanstack/react-query
 
-Simply open [Lovable](https://lovable.dev/projects/cd3e4f18-e19f-4a6a-b709-d32805f29f97) and click on Share -> Publish.
+    recharts, date-fns
 
-## Can I connect a custom domain to my Lovable project?
+    lucide-react, cmdk, sonner
 
-Yes, you can!
+    embla-carousel-react, vaul
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+    lovable-tagger (untuk dev)
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+💻 Build & Preview
+
+# Build untuk produksi
+npm run build
+
+# Preview hasil build
+npm run preview
+
+🧪 Linting
+
+npm run lint
+
+🧑‍💻 Kontributor
+
+    Proyek ini dikembangkan dan dikelola oleh codesyariah122.
+    Feel free to fork & pull request!
+
+📄 Lisensi
+
+Proyek ini berada di bawah lisensi MIT – silakan gunakan sesuai kebutuhan.
+🔗 Tautan Terkait
+
+    Vite Documentation
+
+    Radix UI
+
+    shadcn/ui
+
+    TanStack Query
+
+    Tailwind CSS
